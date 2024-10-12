@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ElectricWare Albania</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Web Components polyfill to support Edge and Firefox < 63 -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script> 
+
+    <style>
+        /* Basic styling for the body */
+        body {
+            transition: opacity 0.5s ease;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            background-image: url('trees.jpg'); /* Set the background image */
+            background-size: cover; /* Cover the entire area */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating */
+        }
+
+        /* Fade-out class to trigger the transition */
+        .fade-out {
+            opacity: 0;
+        }
+
+        /* Styling for the 3D car viewer */
+        model-viewer {
+            width: 80vw;
+            height: 80vh;
+            display: block;
+            margin: 0 auto;
+            background-color: transparent; /* Optional: make it transparent to see the background */
+        }
+
+        /* Back button styling */
+        #switchTo2D {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #switchTo2D:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Button to switch to the 2D page -->
+    <button id="switchTo2D">Back</button>
+
+    <!-- 3D content for your site with white background -->
+    <model-viewer id="car3d" src="scene.gltf" alt="A 3D model of a car" shadow-intensity="1" camera-controls auto-rotate ar>
+    </model-viewer>
+
+    <!-- Loads <model-viewer> for modern browsers -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- Loads <model-viewer> for old browsers like IE11 -->
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+    <!-- Script to handle page transition -->
+    <script>
+        document.getElementById('switchTo2D').addEventListener('click', () => {
+            document.body.classList.add('fade-out'); // Add the fade-out effect
+            setTimeout(() => {
+                window.location.href = 'songplus2d.html';  // Redirect to 2D page after fade-out
+            }, 500); // Delay for the duration of the transition (500ms)
+        });
+    </script>
+</body>
+
+</html>

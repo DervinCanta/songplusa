@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GREENWAVE ALBANIA</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+
+    <style>
+        /* Add transition effect to the entire body */
+        body {
+            transition: opacity 0.5s ease;
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Fade-out class to trigger the transition */
+        .fade-out {
+            opacity: 0;
+        }
+
+        /* Styling for the main heading */
+        h1 {
+            font-size: 36px;
+            color: #000;
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-size: 50px;
+            color: #e94f43;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin: 10px 0 40px 0;
+        }
+
+        /* Styling for the car image */
+        img {
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Styling for the car details */
+        .car-details {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .car-detail-item {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .car-detail-item span {
+            color: #e94f43;
+            font-weight: bold;
+        }
+
+        /* Styling for the buttons */
+        .color-button,
+        #switchTo3D,
+        #goHome {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        #switchTo3D {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        #goHome {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .color-button:hover,
+        #switchTo3D:hover,
+        #goHome:hover {
+            background-color: #555;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .car-details {
+                flex-direction: column;
+            }
+
+            img {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Button to go back to the homepage -->
+    <button id="goHome">Home</button>
+
+    <!-- Button to switch back to the 3D page -->
+    <button id="switchTo3D">View 3D</button>
+
+    <!-- Main content of the car showcase -->
+    <h1>BYD SONGPLUS</h1>
+    <h2>2025</h2>
+    <h3>Nje eksperience per tu mbajtur mend.</h3>
+
+    <!-- Car image -->
+    <img src="songplus.png" alt="A 2D image of the car">
+
+    <!-- Color selection buttons -->
+
+    <!-- Car details -->
+    <div class="car-details">
+        <div class="car-detail-item">Speed <br><span>220 Km</span></div>
+        <div class="car-detail-item">Type <br><span>CrossOver</span></div>
+        <div class="car-detail-item">Prices Starting at <br><span>€25.000</span></div>
+        <div class="car-detail-item">Fuel <br><span>electric</span></div>
+        <div class="car-detail-item">Capacity <br><span>605 km</span></div>
+    </div>
+
+    <!-- Script to handle page transition and color changes -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const switchButton = document.getElementById('switchTo3D');
+            const goHomeButton = document.getElementById('goHome');
+
+            if (switchButton) {
+                switchButton.addEventListener('click', () => {
+                    document.body.classList.add('fade-out'); // Add the fade-out effect
+                    setTimeout(() => {
+                        window.location.href = 'songplus3d.html';  // Redirect to 3D page after fade-out
+                    }, 500); // Delay for the duration of the transition (500ms)
+                });
+            }
+
+            if (goHomeButton) {
+                goHomeButton.addEventListener('click', () => {
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';  // Redirect to the homepage after fade-out
+                    }, 500);
+                });
+            }
+
+            // Color change functionality
+        });
+    </script>
+</body>
+
+</html>
